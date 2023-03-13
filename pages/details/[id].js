@@ -8,7 +8,6 @@ import AutoAwesomeMosaicIcon from '@mui/icons-material/AutoAwesomeMosaic';
 import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
 import CreateIcon from '@mui/icons-material/Create';
 import ShareIcon from '@mui/icons-material/Share';
-import Carousel from "react-elastic-carousel";
 
 import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';

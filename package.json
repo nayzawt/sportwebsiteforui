@@ -22,7 +22,6 @@
     "owl.carousel": "^2.3.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-elastic-carousel": "^0.11.5",
     "react-input-emoji": "^4.3.0",
     "react-owl-carousel": "^2.3.3",
     "react-responsive-carousel": "^3.2.23",
