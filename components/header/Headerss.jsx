@@ -38,13 +38,13 @@ const Headerss = () => {
         </div>
         <div className="header-right">
             <div className="header-right-child-second">
-                <Link href={'/'} className='header-home'>Home</Link>
+                <Link href={'/'} style={{textDecoration:'none'}} className='header-home'>Home</Link>
             </div>
             <div className="header-right-child">
-                <Link href={'/aboutpage'} className='header-home'>About</Link>
+                <Link href={'/aboutpage'} style={{textDecoration:'none'}} className='header-home'>About</Link>
             </div>
             <div className="header-right-child">
-                <Link href={'/contactpage'} className='header-home'>Contact</Link>
+                <Link href={'/contactpage'} style={{textDecoration:'none'}} className='header-home'>Contact</Link>
             </div>
             
             
