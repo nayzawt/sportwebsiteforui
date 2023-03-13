@@ -1,6 +1,5 @@
 import React from 'react'
 import { API_URL } from '../api/Api'
-import Item from "@/pages/items";
 import Image from 'next/image';
 import Link from 'next/link';
 import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
