@@ -31,8 +31,8 @@ const PostCard = ({item}) => {
                     <CreateIcon className='content-icon' />
                     <Link href={`/details/${item.id}`} className="content-span"># {item?.category?.name}</Link>
                 </div>
-                <div className="content-title">
-                    <span id='content-home'>{item.title}</span>
+                <div id='content-home' className="content-title">
+                    <div id='content-home'>{item.title}</div>
                 </div>
 
                 <div className="content-desc">
