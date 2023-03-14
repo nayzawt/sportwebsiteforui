@@ -13,7 +13,7 @@ const RelatedPost = ({ item }) => {
 
                 <div className="related-post-inner">
                     <figure className="related-card-img">
-                        <Image src={API_URL + item.image} alt="" width={500} height={500} />
+                        <Image src={item.image} alt="" width={500} height={500} />
                         <figcaption>
                             <ImageOutlinedIcon className='h3' />
                         </figcaption>

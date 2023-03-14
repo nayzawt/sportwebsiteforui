@@ -19,7 +19,7 @@ const PostCard = ({item}) => {
         
         <div className="card">
             <figure className="container-card-img">
-                <Image src={API_URL + item.image} alt="" width={500} height={500} />
+                <Image src={ item.image} alt="" width={500} height={500} />
                 <figcaption>
                     <ImageOutlinedIcon className='h3' />
                 </figcaption>

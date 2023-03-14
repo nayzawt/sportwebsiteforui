@@ -104,7 +104,7 @@ const Details = ({ post, allPost, allCategory, allComment, viewPost }) => {
                             <span>ADS GO HERE</span>
                         </div>
                         <div className='img'>
-                            <Image src={API_URL + post?.image} alt='' width={500} height={500} />
+                            <Image src={ post?.image} alt='' width={500} height={500} />
                         </div>
                         <div className='desc' dangerouslySetInnerHTML={{ __html: post?.desc }} />
 

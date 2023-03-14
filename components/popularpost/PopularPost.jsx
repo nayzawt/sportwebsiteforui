@@ -8,7 +8,7 @@ const PopularPost = ({item}) => {
     return (
         <div className="second-right-related-post-inner">
             <figure className="second-right-related-post-card">
-                <Image src={API_URL + item.image} alt="" width={500} height={500} />
+                <Image src={ item.image} alt="" width={500} height={500} />
                 <figcaption>
                     <ImageOutlinedIcon className='h3' />
                 </figcaption>
