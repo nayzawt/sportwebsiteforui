@@ -127,7 +127,7 @@ const Homepage = () => {
                                                 <Link href={`categorypage/${item?.category?.id}`} className="content-span"># {item?.category?.name}</Link>
                                             </div>
                                             <div className="content-title">
-                                                <span>{item.title}</span>
+                                                <span id='content-home' >{item.title}</span>
                                             </div>
 
                                             <div className="content-desc">

@@ -1854,6 +1854,12 @@ border-radius: 0;
   width: 100%;
 }
 
+#content-home {
+  overflow: hidden;
+  height: 40px;
+  width: 100%;
+}
+
 .content-title:hover {
   color: #0068f9;
 }
