@@ -1827,14 +1827,7 @@ border-radius: 0;
   color: #0068f9;
 }
 
-.content-title {
-  color: #333333;
-  word-break: break-all;
-  margin-bottom: 20px; 
-  font-size: 17px;
-  line-height: 25px;
-  letter-spacing: 2px;
-}
+
 
 #content {
   overflow: hidden;
@@ -1856,7 +1849,13 @@ border-radius: 0;
 
 #content-home {
   overflow: hidden;
-  height: 40px;
+  color: #333333;
+  word-break: break-all;
+  text-align: justify;
+  margin-bottom: 20px; 
+  font-size: 17px;
+  line-height: 25px;
+  height: 50px;
   width: 100%;
 }
 

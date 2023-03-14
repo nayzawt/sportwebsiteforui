@@ -126,10 +126,10 @@ const Homepage = () => {
                                                 <CreateIcon className='content-icon' />
                                                 <Link href={`categorypage/${item?.category?.id}`} className="content-span"># {item?.category?.name}</Link>
                                             </div>
-                                            <div className="content-title">
-                                                <span id='content-home' >{item.title}</span>
+                                            <div id='content-home' className="content-title">
+                                                <span  >{item.title}</span>
                                             </div>
-
+                                            
                                             <div className="content-desc">
                                                 <div id='content' dangerouslySetInnerHTML={{ __html: item.desc }}></div>
                                                 <span>...</span>
