@@ -12,6 +12,7 @@ const RelatedPost = ({ item }) => {
         
 
                 <div className="related-post-inner">
+                    <div className='related_Image'>
                     <figure className="related-card-img">
                         <Image src={item.image} alt="" width={500} height={500} />
                         <figcaption>
@@ -19,6 +20,7 @@ const RelatedPost = ({ item }) => {
                         </figcaption>
                         <Link href={item.id}></Link>
                     </figure>
+                    </div>
                     <div className="related-content">
                         <p className="related-span">
                             {item.title}

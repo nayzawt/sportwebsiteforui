@@ -7,8 +7,9 @@ import { API_URL } from '@/components/api/Api';
 import Link from 'next/link';
 import PostCard from '@/components/PostCard';
 import { useRouter } from 'next/router';
+import Search from '@/components/searchpage/Search';
 
-const Catnavbar = ({ singleCategory }) => {
+const Catnavbar = ({ singleCategory, resSearchPost }) => {
     const [post, setPost] = useState([])
     let [page, setPage] = useState(1);
     const router = useRouter()
@@ -38,6 +39,7 @@ const Catnavbar = ({ singleCategory }) => {
     return (
         <>
             <div className='second-main-container'>
+                <Search post={resSearchPost} />
                 <div className='cate'>
                     <div className="inner-cate">
                         <div className="cate-left">
@@ -86,9 +88,11 @@ const Catnavbar = ({ singleCategory }) => {
   
 export const getServerSideProps = async ({ params }) => {
     const singleCategory = (await axios.get(API_URL + `v1/categories/public/latest_categories/${params.id}`)).data
+    const resSearchPost = await (await axios.get(API_URL + 'v1/posts/public/latest_posts')).data
     return {
         props: {
-            singleCategory: singleCategory
+            singleCategory: singleCategory,
+            resSearchPost: resSearchPost
         }
     }
 }

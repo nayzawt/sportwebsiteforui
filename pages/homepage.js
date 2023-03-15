@@ -14,6 +14,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import DisabledByDefaultIcon from '@mui/icons-material/DisabledByDefault';
+import DehazeIcon from '@mui/icons-material/Dehaze';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 
 const Homepage = () => {
     const [img, setImg] = useState(true);
@@ -69,15 +72,15 @@ const Homepage = () => {
                         {
                             allCate?.results?.map((cate, index) => {
                                 return (
+
                                     <Link href={`categorypage/${cate.id}`} className="cate-inner" key={index} >{cate.name}</Link>
+
                                 )
                             })
                         }
 
                     </div>
                     <div className="cate-right">
-
-
                         {
                             img === true ?
                                 <div className="cate-light" onClick={posthandel}>
@@ -97,29 +100,31 @@ const Homepage = () => {
                     <button
                         className={1 >= page ? 'square_btnnot' : 'square_btn'}
                         disabled={1 >= page} onClick={() => handlePrev()}
-                        style={{marginRight:'10px', outline:'none', border:'none'}}
+                        style={{ marginRight: '10px', outline: 'none', border: 'none' }}
                     >
-                        <ArrowBackIosNewIcon style={{fontSize:'14px'}} />
+                        <ArrowBackIosNewIcon style={{ fontSize: '14px' }} />
                     </button>
                     <span className='page__span'>Page {allPost.page} / {allPost.totalPages}</span>
                     <button
                         className={allPost?.totalPages <= page ? 'square_btnnot' : 'square_btn'}
-                        disabled={allPost?.totalPages <= page} onClick={() => handleNext()} style={{marginLeft:'10px', outline:'none', border:'none'}}
+                        disabled={allPost?.totalPages <= page} onClick={() => handleNext()} style={{ marginLeft: '10px', outline: 'none', border: 'none' }}
                     >
-                        <ArrowForwardIosIcon style={{fontSize:'14px'}} />
+                        <ArrowForwardIosIcon style={{ fontSize: '14px' }} />
                     </button>
                     <div className='container-card-first'>
                         {
                             allPost?.results?.map((item, index) => {
                                 return (
                                     <div className="card" key={index}>
+                                        <div className='container_Image'>
                                         <figure className="container-card-img">
-                                            <Image src={ item.image} alt="" width={500} height={500} />
+                                            <Image src={item.image} className='img' alt="" width={100} height={100} />
                                             <figcaption>
                                                 <ImageOutlinedIcon className='h3' />
                                             </figcaption>
                                             <Link href={`details/${item.id}`}></Link>
                                         </figure>
+                                        </div>
 
                                         <div className={img ? "content" : "content-second"} >
                                             <div className="content-cate">
@@ -129,7 +134,7 @@ const Homepage = () => {
                                             <div id='content-home' className="content-title">
                                                 <span  >{item.title}</span>
                                             </div>
-                                            
+
                                             <div className="content-desc">
                                                 <div id='content' dangerouslySetInnerHTML={{ __html: item.desc }}></div>
                                                 <span>...</span>

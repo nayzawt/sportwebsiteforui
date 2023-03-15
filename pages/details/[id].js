@@ -26,8 +26,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import RelatedPost from '@/components/relatedpost/RelatedPost';
 import PopularPost from '@/components/popularpost/PopularPost';
+import Search from '@/components/searchpage/Search';
 
-const Details = ({ post, allPost, allCategory, allComment, viewPost }) => {
+const Details = ({ post, allPost, allCategory, allComment, viewPost, resSearchPost }) => {
     const [noOfElement, setNoOfElement] = useState(4);
     const [commentBox, setCommentBox] = useState(false);
     const [addBox, setAddBox] = useState(false);
@@ -45,6 +46,117 @@ const Details = ({ post, allPost, allCategory, allComment, viewPost }) => {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
+        responsive: [
+            {
+                breakpoint: 1500,
+                settings: {
+                    slidesToShow: 0.999,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 1400,
+                settings: {
+                    slidesToShow: 1.999,
+                    slidesToScroll: 1,
+
+                }
+            },
+
+            {
+                breakpoint: 1300,
+                settings: {
+                    slidesToShow: 1.999,
+                    slidesToScroll: 1,
+
+                }
+            },
+
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 1.999,
+                    slidesToScroll: 1,
+
+                }
+            },
+
+            {
+                breakpoint: 1100,
+                settings: {
+                    slidesToShow: 1.999,
+                    slidesToScroll: 1,
+
+                }
+            },
+
+            {
+                breakpoint: 1000,
+                settings: {
+                    slidesToShow: 1.999,
+                    slidesToScroll: 1,
+
+                }
+            },
+
+            {
+                breakpoint: 900,
+                settings: {
+                    slidesToShow: 0.999,
+                    slidesToScroll: 1,
+
+                }
+            },
+
+            {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 0.999,
+                    slidesToScroll: 1,
+
+                }
+            },
+
+            {
+                breakpoint: 700,
+                settings: {
+                    slidesToShow: 0.999,
+                    slidesToScroll: 1,
+
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 0.999,
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    slidesToShow: 0.999,
+                    slidesToScroll: 1,
+
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 380,
+                settings: {
+                    slidesToShow: 0.999,
+                    slidesToScroll: 1
+                }
+            }
+        ]
     };
 
     const addhandel = () => {
@@ -75,6 +187,7 @@ const Details = ({ post, allPost, allCategory, allComment, viewPost }) => {
     return (
         <div>
             <div className='postabout'>
+                <Search post={resSearchPost} />
                 <div className='postabout-title'>
                     <div className='postabout-header'>
                         <span>{post?.title}</span>
@@ -104,7 +217,7 @@ const Details = ({ post, allPost, allCategory, allComment, viewPost }) => {
                             <span>ADS GO HERE</span>
                         </div>
                         <div className='img'>
-                            <Image src={ post?.image} alt='' width={500} height={500} />
+                            <Image src={post?.image} alt='' width={500} height={500} />
                         </div>
                         <div className='desc' dangerouslySetInnerHTML={{ __html: post?.desc }} />
 
@@ -239,18 +352,7 @@ const Details = ({ post, allPost, allCategory, allComment, viewPost }) => {
                     </div>
 
                     <div className='post-inner-right'>
-                        <div>
-                            <div className="border">
-                                <div className="inner-border"></div>
-                                <p className='archive-span'>Search This Blog</p>
-                            </div>
-                            <div className="contact-name">
-                                <input type="text" placeholder='Search this blog' className='contact-input' />
-                                <SearchOutlinedIcon />
-                            </div>
-                            <hr />
-
-
+                        <div className='post-inner-right-main'>
                             <div className="border">
                                 <div className="inner-border"></div>
                                 <span className='archive-span'>Labels</span>
@@ -266,45 +368,24 @@ const Details = ({ post, allPost, allCategory, allComment, viewPost }) => {
 
                             </div>
                             <hr />
+
+
                             <div className="border">
                                 <div className="inner-border"></div>
                                 <span className='archive-span'>Popular Posts</span>
                             </div>
-                            {
-                                viewPost?.results?.map((item, index) => {
-                                    return (
-                                        <PopularPost item={item} key={index} />
-                                    )
-                                })
-                            }
-
-                            <hr />
-                            <div className="border">
-                                <div className="inner-border"></div>
-                                <span className='archive-span'>Labels</span>
+                            <div className='main-popular'>
+                                {
+                                    viewPost?.results?.map((item, index) => {
+                                        return (
+                                            <PopularPost item={item} key={index} />
+                                        )
+                                    })
+                                }
                             </div>
 
-                            {
-                                allCategory?.results?.map((items, index) => {
-                                    return (
-                                        <div className="right-box-border" key={index} >
-                                            <div className="border-right"></div>
-                                            <Link href={`/categorypage/${items.id}`}>{items.name}</Link>
-                                        </div>
-                                    )
-                                })
-                            }
 
-                            <hr />
-                            <div className="border">
-                                <div className="inner-border"></div>
-                                <span className='archive-span'>Advertisement</span>
-                            </div>
-                            <div className="right-footer">
-                                <div className="right-related-box">
-                                    ADS 300 X 250
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -314,19 +395,22 @@ const Details = ({ post, allPost, allCategory, allComment, viewPost }) => {
 }
 
 export const getServerSideProps = async ({ params }) => {
-
+    const resSearchPost = await (await axios.get(API_URL + 'v1/posts/public/latest_posts')).data
     const allCate = await (await axios.get(API_URL + 'v1/categories/public/latest_categories')).data;
     const res = await (await axios.get(API_URL + `v1/posts/public/latest_posts/${params.id}`)).data
+    const resView = await (await axios.patch(API_URL + `v1/posts/public/latest_posts/${params.id}`)).data
     const allComments = await (await axios.get(API_URL + 'v1/comments')).data
     const viewPost = await (await axios.get(API_URL + 'v1/posts/public/latest_posts/?sortBy=viewCounts:desc&limit=5')).data
     const allCategoryStyle = await (await axios.get(API_URL + `v1/posts/public/latest_posts/?category=${res.category.id}`)).data
+
     return {
         props: {
             post: res,
             allPost: allCategoryStyle,
             allCategory: allCate,
             allComment: allComments,
-            viewPost: viewPost
+            viewPost: viewPost,
+            resSearchPost: resSearchPost,
         }
     }
 }

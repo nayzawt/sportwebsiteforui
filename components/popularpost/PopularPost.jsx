@@ -7,6 +7,7 @@ import { API_URL } from '../api/Api';
 const PopularPost = ({item}) => {
     return (
         <div className="second-right-related-post-inner">
+            <div className='Image'>
             <figure className="second-right-related-post-card">
                 <Image src={ item.image} alt="" width={500} height={500} />
                 <figcaption>
@@ -14,10 +15,11 @@ const PopularPost = ({item}) => {
                 </figcaption>
                 <Link href={item.id}></Link>
             </figure>
+            </div>
             <div className="second-right-related-content">
                 <div className="second-right-related-span">
-                    <div>{item.title}</div>
-                    <div>{item.viewCounts} views</div>
+                    <div id='second-right-related-span' >{item.title}</div>
+                    {/* <div>{item.viewCounts} views</div> */}
                 </div>
 
                 <div className="second-right-related-desc" id='content-second' dangerouslySetInnerHTML={{ __html: item.desc }} />
